@@ -72,8 +72,8 @@ passport.deserializeUser((user, done) => {
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 app.get("/auth/google/callback", passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/dashboard",
-    failureRedirect: "http://localhost:3000/login"
+    successRedirect: `${process.env.frontendurl}/dashboard`,
+    failureRedirect: `${process.env.frontendurl}/login`
 }))
 
 app.post("/signup", async (req, res) => {
@@ -139,7 +139,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect("http://localhost:3000/login");
+    res.redirect(`${process.env.frontendurl}/login`);
 }
 
 app.get("/dashboard", ensureAuthenticated, (req, res) => {
@@ -149,7 +149,7 @@ app.get("/dashboard", ensureAuthenticated, (req, res) => {
 app.get("/logout", (req, res, next) => {
     req.logout(function (err) {
         if (err) { return next(err) }
-        res.redirect("http://localhost:3000");
+        res.redirect(`${process.env.frontendurl}`);
     })
 })
 
