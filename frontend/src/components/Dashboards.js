@@ -8,7 +8,7 @@ const Dashboards = () => {
 
   const getUser = async () => {
     try {
-        const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+        const response = await axios.get(`${process.env.backendurl}/login/sucess`, { withCredentials: true });
 
         console.log("response",response)
     } catch (error) {

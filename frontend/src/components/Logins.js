@@ -12,7 +12,7 @@ const Logins = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:6005/login', { email, password }, { withCredentials: true });
+            const response = await axios.post(`${process.env.backendurl}/login`, { email, password }, { withCredentials: true });
             console.log('Login Response:', response);
             if (response.status === 200) {
                 alert('Login successful!');
@@ -25,7 +25,7 @@ const Logins = () => {
     };
 
     const loginwithgoogle = () => {
-        window.open("http://localhost:6005/auth/google/callback", "_self");
+        window.open(`${process.env.backendurl}/auth/google/callback`, "_self");
     };
 
     return (

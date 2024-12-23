@@ -10,7 +10,7 @@ const Headers = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+            const response = await axios.get(`${process.env.backendurl}/login/sucess`, { withCredentials: true });
 
             setUserdata(response.data.user)
             if(userdata?.image) setIsImage(true)
@@ -20,7 +20,7 @@ const Headers = () => {
     }
 
     const logout = ()=>{
-        window.open("http://localhost:6005/logout","_self")
+        window.open(`${process.env.backendurl}/logout`,"_self")
     }
 
     useEffect(() => {

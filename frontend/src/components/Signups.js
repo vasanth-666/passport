@@ -21,7 +21,7 @@ const Signups = () => {
         setLoading(true);
 
         try {
-            await axios.post('http://localhost:6005/signup', { name, email, password });
+            await axios.post(`${process.env.backendurl}/signup`, { name, email, password });
             alert('Signup successful! You can now log in.');
             navigate('/login');
         } catch (err) {
