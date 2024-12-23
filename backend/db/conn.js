@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DB = "mongodb://localhost:27017/Google";
+const DB = process.env.mongodburl;
 
 mongoose.connect(DB,{
 
