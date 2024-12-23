@@ -43,7 +43,7 @@ const Headers = () => {
                                 </NavLink>
                             </li>
                             {
-                                Object?.keys(userdata)?.length > 0 ? (
+                               userdata && Object?.keys(userdata)?.length > 0 ? (
                                     <>
                                     
                                         <li>
